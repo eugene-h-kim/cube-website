@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
+
 /* ----- global style -----*/
 
 * {
@@ -8,7 +9,7 @@
   padding: 0;
 }
 
-ol, ul {
+ol,ul {
   list-style: none;
 }
 
@@ -49,6 +50,10 @@ body {
   opacity: 0.5;
 }
 
+@keyframes ani {
+  0% {transform: rotateY(0deg);}
+  100% {transform: rotateY(360deg);}
+}
 
 /* main .wrap #circle */
 
@@ -60,7 +65,12 @@ body {
   left: 50%;
   margin-top: -400px;
   margin-left: -300px;
+  transform-style: preserve-3d;
+  animation: ani linear 40s infinite;
 }
+
+
+/* common ui */
 
 .wrap #circle article {
   width: 100%;
@@ -68,7 +78,7 @@ body {
   position: absolute;
   top: 0px;
   left: 0px;
-  display: none;
+  backface-visibility: hidden; /* 반대쪽인 뒷면을 숨김 처리 */
 }
 
 .wrap #circle article h1 {
@@ -110,6 +120,25 @@ body {
   opacity: 1;
 }
 
+.wrap #circle article .inner>div h2 {
+  transition: all 0.5s;
+}
+
+.wrap #circle article .inner>div i {
+  transition: all 0.5s;
+}
+
+.wrap #circle article .inner>div:hover h2 {
+  color: lightcyan;
+  text-shadow: 0px 0px 10px aqua;
+}
+
+.wrap #circle article .inner>div:hover i {
+  color: lightcyan;
+  text-shadow: 0px 0px 10px aqua;
+  transform: scale(1.2);
+}
+
 
 /* face1 */
 
@@ -141,25 +170,6 @@ body {
   margin-right: 20px;
 }
 
-/* .wrap #circle .face1 .inner>div:hover i {
-  color: lightcyan;
-  text-shadow: 0px 0px 10px aqua;
-  transform: scale(1.2);
-  opacity: 1;
-} */
-
-.wrap #circle article .inner>div:hover h2 {
-  color: lightcyan;
-  text-shadow: 0px 0px 10px aqua;
-}
-
-.wrap #circle article .inner>div:hover i {
-  color: lightcyan;
-  text-shadow: 0px 0px 10px aqua;
-  transform: scale(1.2);
-  opacity: all 0.5s;
-}
-
 
 /* face2 */
 
@@ -183,7 +193,7 @@ body {
   margin-bottom: 20px;
 }
 
-.wrap #circle .face2 .innder>dip p {
+.wrap #circle .face2 .innder>div p {
   font: 18px/1.3 "arial";
   color: #ccc;
 }
@@ -398,7 +408,7 @@ body {
   top: 0px;
   left: 50%;
   transform: translateX(-50%);
-  object-fit: absolute;
+  position: absolute;
   opacity: 0.9;
 }
 
@@ -430,9 +440,9 @@ body {
 
 /* face8 */
 
-.wrap #circle .face8 {
+/* .wrap #circle .face8 {
   display: block;
-}
+} */
 
 .wrap #circle .face8 .inner>div:nth-of-type(1) {
   width: 100%;
@@ -541,5 +551,40 @@ body {
   position: absolute;
   top: 0px;
   right: 40px;
+}
+
+
+/* ---------- 3D 배치 ---------- */
+
+.face1 {
+  transform: rotateY(0deg) translateZ(-764px);
+}
+
+.face2 {
+  transform: rotateY(45deg) translateZ(-764px);
+}
+
+.face3 {
+  transform: rotateY(90deg) translateZ(-764px);
+}
+
+.face4 {
+  transform: rotateY(135deg) translateZ(-764px);
+}
+
+.face5 {
+  transform: rotateY(180deg) translateZ(-764px);
+}
+
+.face6 {
+  transform: rotateY(225deg) translateZ(-764px);
+}
+
+.face7 {
+  transform: rotateY(270deg) translateZ(-764px);
+}
+
+.face8 {
+  transform: rotateY(315deg) translateZ(-764px);
 }
 
